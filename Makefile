@@ -1,4 +1,4 @@
-.PHONY: all clean deps build
+.PHONY: all clean deps build public-ip install dir copy
 
 all: clean build
 
@@ -8,5 +8,15 @@ clean:
 deps:
 	go get -t ./...
 
-build:
-	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"'
+build: public-ip
+
+public-ip:
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' public-ip.go
+
+install: build dir copy
+
+dir:
+	mkdir -p ~/.config/i3blocks-go
+
+copy:
+	cp public-ip ~/.config/i3blocks-go/
