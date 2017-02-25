@@ -16,7 +16,7 @@ func main() {
 
 	// Read current load average information from kernel
 	// pseudo-file-system mounted at /proc.
-	load, err := ioutil.ReadFile("/proc/loadavg")
+	loadRaw, err := ioutil.ReadFile("/proc/loadavg")
 	if err != nil {
 
 		// Write fallback string to STDOUT and fail.
@@ -25,10 +25,10 @@ func main() {
 	}
 
 	// Remove surrounding space and split at inner spaces.
-	loadRaw := strings.Split(strings.TrimSpace(string(load)), " ")
+	loadStrings := strings.Split(strings.TrimSpace(string(loadRaw)), " ")
 
 	// Build final output string.
-	output := fmt.Sprintf("%s, %s, %s", loadRaw[0], loadRaw[1], loadRaw[2])
+	output := fmt.Sprintf("%s, %s, %s", loadStrings[0], loadStrings[1], loadStrings[2])
 
 	fullText = output
 	shortText = output
