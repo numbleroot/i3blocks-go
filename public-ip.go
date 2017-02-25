@@ -11,9 +11,6 @@ import (
 
 func main() {
 
-	// Per default, exit with a success code.
-	var retValue int = 0
-
 	// Set both display texts to 'unknown' by default.
 	var fullText string = "unknown"
 	var shortText string = "unknown"
@@ -39,6 +36,5 @@ func main() {
 
 	// Write out gathered information to STDOUT.
 	fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-
-	os.Exit(retValue)
+	os.Exit(0)
 }
