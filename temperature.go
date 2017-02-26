@@ -13,8 +13,8 @@ import (
 func main() {
 
 	// Allow to specify high and critical thresholds.
-	highFlag := flag.Int("highTemp", 70, "Specify which temperature threshold in Celsius is considered high.")
-	criticalFlag := flag.Int("criticalTemp", 78, "Specify which temperature threshold in Celsius is considered critical.")
+	highFlag := flag.Int("highTemp", 72, "Specify which temperature threshold in Celsius is considered high.")
+	criticalFlag := flag.Int("criticalTemp", 80, "Specify which temperature threshold in Celsius is considered critical.")
 	flag.Parse()
 
 	// Gather temperature thresholds.
