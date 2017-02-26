@@ -1,4 +1,4 @@
-.PHONY: all clean deps build public-ip internal-ip load-average uptime install dir copy
+.PHONY: all clean deps build public-ip internal-ip load-average uptime battery install dir copy
 
 all: clean build
 
@@ -8,7 +8,7 @@ clean:
 deps:
 	go get -t ./...
 
-build: public-ip internal-ip load-average uptime
+build: public-ip internal-ip load-average uptime battery
 
 public-ip:
 	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' public-ip.go
@@ -22,6 +22,9 @@ load-average:
 uptime:
 	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' uptime.go
 
+battery:
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' battery.go
+
 install: build dir copy
 
 dir:
@@ -32,3 +35,4 @@ copy:
 	cp internal-ip ~/.config/i3blocks-go/
 	cp load-average ~/.config/i3blocks-go/
 	cp uptime ~/.config/i3blocks-go/
+	cp battery ~/.config/i3blocks-go/

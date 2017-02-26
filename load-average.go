@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	// Set both display texts to 'error' by default.
+	// Set display texts to 'error' by default.
 	var fullText string = "error"
 	var shortText string = "error"
 
@@ -27,11 +27,10 @@ func main() {
 	// Remove surrounding space and split at inner spaces.
 	loadStrings := strings.Split(strings.TrimSpace(string(loadRaw)), " ")
 
-	// Build final output string.
-	output := fmt.Sprintf("%s, %s, %s", loadStrings[0], loadStrings[1], loadStrings[2])
-
-	fullText = output
-	shortText = output
+	// Depending on length of display text, construct
+	// final output string.
+	fullText = fmt.Sprintf("%s<span foreground=\"#999999\">-</span>%s<span foreground=\"#999999\">-</span>%s", loadStrings[0], loadStrings[1], loadStrings[2])
+	shortText = fmt.Sprintf("%s", loadStrings[0])
 
 	// Write out gathered information to STDOUT.
 	fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
