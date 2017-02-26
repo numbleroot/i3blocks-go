@@ -17,7 +17,7 @@ func main() {
 	secondsFlag := flag.Bool("showSeconds", false, "When this flag is set, seconds will be included in uptime presentation.")
 	flag.Parse()
 
-	// Set display texts to 'error' by default.
+	// Set display texts to defaults.
 	var fullText string = "error"
 	var shortText string = "error"
 	var output string = ""

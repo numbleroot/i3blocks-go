@@ -11,7 +11,7 @@ import (
 
 func main() {
 
-	// Set display texts to 'error' by default.
+	// Set display texts to defaults.
 	var fullText string = "error"
 	var shortText string = "error"
 	var icon string = ""

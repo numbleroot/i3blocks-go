@@ -9,7 +9,7 @@ import (
 
 func main() {
 
-	// Set both display texts to 'unknown' by default.
+	// Set display texts to defaults.
 	var fullText string = "unknown"
 	var shortText string = "unknown"
 
