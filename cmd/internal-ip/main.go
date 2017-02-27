@@ -17,7 +17,9 @@ func main() {
 	ifaces, err := net.Interfaces()
 	if err != nil {
 
-		// Write fallback string to STDOUT and fail.
+		// Write an error to STDERR, fallback display values
+		// to STDOUT and exit with failure code.
+		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to retrieve local interfaces: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
 		os.Exit(1)
 	}
@@ -40,8 +42,7 @@ func main() {
 		// found active interface.
 		addrs, err := iface.Addrs()
 		if err != nil {
-
-			// Write fallback string to STDOUT and fail.
+			fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to retrieve IP addresses associated with %s: %s", iface.Name, err.Error())
 			fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
 			os.Exit(1)
 		}

@@ -22,27 +22,25 @@ func main() {
 	chargingRaw, err := ioutil.ReadFile("/sys/class/power_supply/BAT0/status")
 	if err != nil {
 
-		// Write fallback string to STDOUT and fail.
+		// Write an error to STDERR, fallback display values
+		// to STDOUT and exit with failure code.
+		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to read charging file: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
 		os.Exit(1)
 	}
 
-	// Read full capacity information from kernel
-	// pseudo-file-system mounted at /sys.
+	// Read full capacity information from /sys.
 	chargeFullRaw, err := ioutil.ReadFile("/sys/class/power_supply/BAT0/charge_full")
 	if err != nil {
-
-		// Write fallback string to STDOUT and fail.
+		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to read full capacity file: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
 		os.Exit(1)
 	}
 
-	// Read current capacity information from kernel
-	// pseudo-file-system mounted at /sys.
+	// Read current capacity information from /sys.
 	chargeNowRaw, err := ioutil.ReadFile("/sys/class/power_supply/BAT0/charge_now")
 	if err != nil {
-
-		// Write fallback string to STDOUT and fail.
+		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to read current capacity file: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
 		os.Exit(1)
 	}
@@ -55,8 +53,7 @@ func main() {
 	// Convert full capacity string to float32.
 	chargeFull, err := strconv.ParseFloat(chargeFullString, 32)
 	if err != nil {
-
-		// Write fallback string to STDOUT and fail.
+		fmt.Fprintf(os.Stderr, "[i3blocks-go] Could not convert full capacity value: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
 		os.Exit(1)
 	}
@@ -64,8 +61,7 @@ func main() {
 	// Convert current capacity string to float32.
 	chargeNow, err := strconv.ParseFloat(chargeNowString, 32)
 	if err != nil {
-
-		// Write fallback string to STDOUT and fail.
+		fmt.Fprintf(os.Stderr, "[i3blocks-go] Could not convert current capacity value: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
 		os.Exit(1)
 	}

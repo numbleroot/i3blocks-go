@@ -33,7 +33,9 @@ func main() {
 	tempRaw, err := ioutil.ReadFile("/sys/class/hwmon/hwmon0/temp1_input")
 	if err != nil {
 
-		// Write fallback string to STDOUT and fail.
+		// Write an error to STDERR, fallback display values
+		// to STDOUT and exit with failure code.
+		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to read CPU temperature file: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
 		os.Exit(1)
 	}
@@ -44,8 +46,7 @@ func main() {
 	// Convert temperature string to integer.
 	temp, err := strconv.Atoi(tempString)
 	if err != nil {
-
-		// Write fallback string to STDOUT and fail.
+		fmt.Fprintf(os.Stderr, "[i3blocks-go] Could not convert temperature value: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
 		os.Exit(1)
 	}
