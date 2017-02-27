@@ -3,7 +3,7 @@
 all: clean build
 
 clean:
-	go clean -i ./...
+	rm -f public-ip internal-ip uptime load-average temperature battery date-time
 
 deps:
 	go get -t ./...
@@ -11,25 +11,25 @@ deps:
 build: public-ip internal-ip uptime load-average temperature battery date-time
 
 public-ip:
-	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' public-ip.go
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/public-ip/
 
 internal-ip:
-	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' internal-ip.go
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/internal-ip/
 
 uptime:
-	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' uptime.go
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/uptime/
 
 load-average:
-	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' load-average.go
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/load-average/
 
 temperature:
-	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' temperature.go
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/temperature/
 
 battery:
-	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' battery.go
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/battery/
 
 date-time:
-	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' date-time.go
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/date-time/
 
 install: build dir copy
 
