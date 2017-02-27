@@ -1,6 +1,6 @@
 # i3blocks-go
 
-[![License: GPL v3](https://img.shields.io/badge/license-GPL%20v3-blue.svg)](https://github.com/numbleroot/i3blocks-go/blob/master/LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/numbleroot/i3blocks-go)](https://goreportcard.com/report/github.com/numbleroot/i3blocks-go)
+[![License: GPLv3](https://img.shields.io/badge/license-GPL%20v3-blue.svg)](https://github.com/numbleroot/i3blocks-go/blob/master/LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/numbleroot/i3blocks-go)](https://goreportcard.com/report/github.com/numbleroot/i3blocks-go)
 
 Scripts for alternative [i3blocks](https://github.com/vivien/i3blocks) blocklets to be used in the [i3 window manager](https://i3wm.org/). I wanted to modify and expand the default blocklets available with i3blocks. Additionally, I preferred them to be in ELF format and not an interpreted scripting language which is why they are implemented in Go. My final i3blocks setup looks like:
 
