@@ -3,7 +3,7 @@
 all: clean build
 
 clean:
-	go clean -i ./...
+	rm -f public-ip internal-ip uptime load-average temperature battery date-time
 
 deps:
 	go get -t ./...
