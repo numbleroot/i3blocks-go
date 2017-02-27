@@ -3,7 +3,7 @@
 all: clean build
 
 clean:
-	rm -f public-ip internal-ip uptime load-average temperature battery date-time
+	rm -f public-ip internal-ip uptime load-average temperature battery date-time volume
 
 deps:
 	go get -t ./...
@@ -32,7 +32,7 @@ date-time:
 	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/date-time/
 
 volume:
-	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' volume.go
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/volume/
 
 install: build dir copy
 
