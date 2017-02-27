@@ -16,7 +16,7 @@ func main() {
 	var shortText string = "unknown"
 
 	// Request whats-my-ip service to return this
-	// machine's public IP adress via TLS.
+	// machine's public IP address via TLS.
 	resp, _ := http.Get("https://ip.wirelab.org/")
 
 	// Read-in body part of response containing

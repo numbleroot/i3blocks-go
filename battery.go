@@ -12,10 +12,10 @@ import (
 func main() {
 
 	// Set display texts to defaults.
+	var icon string
+	var output string
 	var fullText string = "error"
 	var shortText string = "error"
-	var icon string = ""
-	var output string = ""
 
 	// Read charging status information from kernel
 	// pseudo-file-system mounted at /sys.

@@ -18,9 +18,9 @@ func main() {
 	flag.Parse()
 
 	// Set display texts to defaults.
+	var output string
 	var fullText string = "error"
 	var shortText string = "error"
-	var output string = ""
 
 	// Read current uptime information from kernel
 	// pseudo-file-system mounted at /proc.
