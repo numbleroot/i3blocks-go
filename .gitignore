@@ -25,3 +25,11 @@ _testmain.go
 
 # Repository-specific excludes
 *.sublime-*
+screenshot.xcf
+public-ip
+internal-ip
+uptime
+load-average
+temperature
+battery
+date-time
