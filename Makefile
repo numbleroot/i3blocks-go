@@ -1,14 +1,14 @@
-.PHONY: all clean deps build public-ip internal-ip uptime load-average temperature battery date-time install dir copy
+.PHONY: all clean deps build public-ip internal-ip uptime load-average temperature battery date-time volume install dir copy
 
 all: clean build
 
 clean:
-	rm -f public-ip internal-ip uptime load-average temperature battery date-time
+	rm -f public-ip internal-ip uptime load-average temperature battery date-time volume
 
 deps:
 	go get -t ./...
 
-build: public-ip internal-ip uptime load-average temperature battery date-time
+build: public-ip internal-ip uptime load-average temperature battery date-time volume
 
 public-ip:
 	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/public-ip/
@@ -31,6 +31,9 @@ battery:
 date-time:
 	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/date-time/
 
+volume:
+	CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' ./cmd/volume/
+
 install: build dir copy
 
 dir:
@@ -44,3 +47,4 @@ copy:
 	cp temperature ~/.config/i3blocks-go/
 	cp battery ~/.config/i3blocks-go/
 	cp date-time ~/.config/i3blocks-go/
+	cp volume ~/.config/i3blocks-go/

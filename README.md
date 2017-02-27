@@ -1,6 +1,6 @@
 # i3blocks-go
 
-[![License: GPLv3](https://img.shields.io/badge/license-GPL%20v3-blue.svg)](https://github.com/numbleroot/i3blocks-go/blob/master/LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/numbleroot/i3blocks-go)](https://goreportcard.com/report/github.com/numbleroot/i3blocks-go)
+[![License: GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/numbleroot/i3blocks-go/blob/master/LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/numbleroot/i3blocks-go)](https://goreportcard.com/report/github.com/numbleroot/i3blocks-go)
 
 Scripts for alternative [i3blocks](https://github.com/vivien/i3blocks) blocklets to be used in the [i3 window manager](https://i3wm.org/). I wanted to modify and expand the default blocklets available with i3blocks. Additionally, I preferred them to be in ELF format and not an interpreted scripting language which is why they are implemented in Go. My final i3blocks setup looks like:
 
@@ -66,6 +66,8 @@ Reload i3 and enjoy beautiful blocklets.
 **temperature**: Reads CPU temperature from `/sys/class/hwmon/hwmon0/temp1_input` and displays the value with a corresponding thermometer icon. The icon is colored according to provided `-highTemp XX` and `-criticalTemp YY` temperature values.
 
 **battery**: Consults three files located at `/sys/class/power_supply/` to simply show a conditionally colored battery icon and your machine's current charge percentage. Exclude this blocklet if your machine does not feature a battery.
+
+**volume**: Executes `amixer sget Master` and extracts volume level in percent as well as whether your speakers are currently muted. Outputs fitting icon and volume level.
 
 **date-time**: Displays current date and time formatted as `yyyy-mm-dd hh:mm`. If you would like to see seconds as well, append flag `-showSeconds` to `command`.
 
