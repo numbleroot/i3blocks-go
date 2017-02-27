@@ -2,10 +2,9 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
-
-	"io/ioutil"
 )
 
 func main() {
