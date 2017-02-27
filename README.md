@@ -67,6 +67,8 @@ Reload i3 and enjoy beautiful blocklets.
 
 **battery**: Consults three files located at `/sys/class/power_supply/` to simply show a conditionally colored battery icon and your machine's current charge percentage. Exclude this blocklet if your machine does not feature a battery.
 
+**volume**: Executes `amixer sget Master` and extracts volume level in percent as well as whether your speakers are currently muted. Outputs fitting icon and volume level.
+
 **date-time**: Displays current date and time formatted as `yyyy-mm-dd hh:mm`. If you would like to see seconds as well, append flag `-showSeconds` to `command`.
 
 
