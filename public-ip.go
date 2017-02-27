@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+// IpInfo is the information one gets by their service as json
+// Generated with http://json2struct.mervine.net
 type IpInfo struct {
 	City     string `json:"city"`
 	Country  string `json:"country"`
