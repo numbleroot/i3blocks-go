@@ -74,7 +74,7 @@ func main() {
 	}
 
 	// Build final output string.
-	output = fmt.Sprintf("%s%3d°C", icon, temp)
+	output = fmt.Sprintf("%s%4d°C", icon, temp)
 
 	fullText = output
 	shortText = output

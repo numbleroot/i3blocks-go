@@ -24,10 +24,10 @@ func main() {
 	// on string lengths and seconds flag.
 	if *secondsFlag == true {
 		fullText = nowTime.Format("2006-01-02 15:04:05")
-		shortText = nowTime.Format("15:04:05")
+		shortText = nowTime.Format("06/01/02 15:04:05")
 	} else {
 		fullText = nowTime.Format("2006-01-02 15:04")
-		shortText = nowTime.Format("15:04")
+		shortText = nowTime.Format("06/01/02 15:04")
 	}
 
 	// Write out gathered information to STDOUT.
