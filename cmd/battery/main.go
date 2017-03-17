@@ -69,6 +69,11 @@ func main() {
 	// Calculate current battery charge percentage.
 	chargePerc := int((chargeNow / chargeFull) * 100.0)
 
+	// Avoid unreasonable rounding or reporting errors.
+	if chargePerc > 100 {
+		chargePerc = 100
+	}
+
 	if (chargePerc < 8) && (charging != "Charging") {
 
 		// If charge percentage is very low and battery
