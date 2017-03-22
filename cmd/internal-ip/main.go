@@ -21,7 +21,7 @@ func main() {
 		// to STDOUT and exit with failure code.
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to retrieve local interfaces: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	for _, iface := range ifaces {
@@ -44,7 +44,7 @@ func main() {
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to retrieve IP addresses associated with %s: %s", iface.Name, err.Error())
 			fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-			os.Exit(1)
+			os.Exit(0)
 		}
 
 		// Extract the actual IP from address string

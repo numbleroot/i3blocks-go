@@ -85,7 +85,7 @@ func main() {
 		// to STDOUT and exit with failure code.
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to get volume: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	// Check if speakers are muted. Set final

@@ -26,7 +26,7 @@ func main() {
 		// to STDOUT and exit with failure code.
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to read charging file: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	// Read full capacity information from /sys.
@@ -34,7 +34,7 @@ func main() {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to read full capacity file: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	// Read current capacity information from /sys.
@@ -42,7 +42,7 @@ func main() {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to read current capacity file: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	// Trim whitespace.
@@ -55,7 +55,7 @@ func main() {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Could not convert full capacity value: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	// Convert current capacity string to float32.
@@ -63,7 +63,7 @@ func main() {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Could not convert current capacity value: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	// Calculate current battery charge percentage.

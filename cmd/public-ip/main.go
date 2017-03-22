@@ -24,7 +24,7 @@ func main() {
 		// to STDOUT and exit with failure code.
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to get response from public IP service: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	// Read-in body part of response containing
@@ -33,7 +33,7 @@ func main() {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Could not read body part of IP service response: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 	resp.Body.Close()
 

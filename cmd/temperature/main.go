@@ -37,7 +37,7 @@ func main() {
 		// to STDOUT and exit with failure code.
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Failed to read CPU temperature file: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	// Trim spaces.
@@ -48,7 +48,7 @@ func main() {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "[i3blocks-go] Could not convert temperature value: %s", err.Error())
 		fmt.Fprintf(os.Stdout, "%s\n%s\n", fullText, shortText)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	// Normalize temperature value.
