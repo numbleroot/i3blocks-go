@@ -20,10 +20,8 @@ func main() {
 	// Gather temperature thresholds.
 	criticalTemp := *criticalFlag
 	highTemp := *highFlag
-	diffTemp := criticalTemp - highTemp
 
 	// Set display texts to defaults.
-	var icon string
 	var output string
 	var fullText string = "error"
 	var shortText string = "error"
@@ -54,27 +52,14 @@ func main() {
 	// Normalize temperature value.
 	temp = temp / 1000
 
-	// Define temperature values in dependence on
-	// specified high and critical values.
-	mediumTemp := highTemp - diffTemp
-	lowTemp := mediumTemp - diffTemp
-
-	// Depending on current temperature value,
-	// set appropriate thermometer icon.
-	if temp <= lowTemp {
-		icon = ""
-	} else if (temp > lowTemp) && (temp <= mediumTemp) {
-		icon = ""
-	} else if (temp > mediumTemp) && (temp <= highTemp) {
-		icon = ""
-	} else if (temp > highTemp) && (temp <= criticalTemp) {
-		icon = "<span foreground=\"#ffae00\"></span>"
-	} else {
-		icon = "<span foreground=\"#ff0000\"></span>"
-	}
-
 	// Build final output string.
-	output = fmt.Sprintf("%s%4d°C", icon, temp)
+	if (temp > highTemp) && (temp <= criticalTemp) {
+		output = fmt.Sprintf("<span foreground=\"#ffae00\">%d°C</span>", temp)
+	} else if temp > criticalTemp {
+		output = fmt.Sprintf("<span foreground=\"#ff0000\">%d°C</span>", temp)
+	} else {
+		output = fmt.Sprintf("%d°C", temp)
+	}
 
 	fullText = output
 	shortText = output

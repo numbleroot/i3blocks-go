@@ -11,7 +11,7 @@ Scripts for alternative [i3blocks](https://github.com/vivien/i3blocks) blocklets
 
 If you want to build this project from source, you need to have a working [Go](https://golang.org/) installation. If you do not currently have Go installed and configured, please find out your distribution's recommended way of doing so and follow it through.
 
-As this project provides alternative blocklets for a configured i3blocks bar in an i3 window manager, both i3 and i3blocks are required to be present. Furthermore, icons are used by at least two of provided blocklets. [Font Awesome](http://fontawesome.io/) is used to display such fitting and informative symbols, so please make sure to have the font installed. [Fira Mono](https://mozilla.github.io/Fira/) is used in later examples, so install the font on your system if you would like to configure your bar to look like the one in above screenshot.
+As this project provides alternative blocklets for a configured i3blocks bar in an i3 window manager, both i3 and i3blocks are required to be present. [Fira Mono](https://mozilla.github.io/Fira/) is used in later examples, so install the font on your system if you would like to configure your bar to look like the one in above screenshot.
 
 
 ## Installation
@@ -44,7 +44,7 @@ The `bar` section of your `~/.config/i3/config` file should at least contain the
 ```
 bar {
         status_command i3blocks
-        font pango:Fira Mono, FontAwesome 20
+        font pango:Fira Mono 20
 }
 ```
 
@@ -63,9 +63,9 @@ Reload i3 and enjoy beautiful blocklets.
 
 **load-average**: If enough space is available, shows your machine's load average for the last 1, 5, and 15 minutes provided by `/proc/loadavg` file. If space is limited, only shows the load average of the last minute.
 
-**temperature**: Reads CPU temperature from `/sys/class/hwmon/hwmon0/temp1_input` and displays the value with a corresponding thermometer icon. The icon is colored according to provided `-highTemp XX` and `-criticalTemp YY` temperature values.
+**temperature**: Reads the CPU temperature from `/sys/class/hwmon/hwmon0/temp1_input` and displays the value. The font color is set accordingly to provided `-highTemp XX` and `-criticalTemp YY` temperature values.
 
-**battery**: Consults three files located at `/sys/class/power_supply/` to simply show a conditionally colored battery icon and your machine's current charge percentage. Exclude this blocklet if your machine does not feature a battery.
+**battery**: Consults three files located at `/sys/class/power_supply/` to simply show your machine's current charge percentage appropriately colored. Exclude this blocklet if your machine does not feature a battery.
 
 **volume**: Executes `amixer sget Master` and extracts volume level in percent as well as whether your speakers are currently muted. Outputs fitting icon and volume level.
 

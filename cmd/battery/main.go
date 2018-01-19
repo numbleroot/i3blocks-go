@@ -12,7 +12,6 @@ import (
 func main() {
 
 	// Set display texts to defaults.
-	var icon string
 	var output string
 	var fullText string = "error"
 	var shortText string = "error"
@@ -83,34 +82,20 @@ func main() {
 		os.Exit(33)
 	}
 
-	// Depending on current charge percentage,
-	// set appropriate battery icon.
-	if (chargePerc >= 0) && (chargePerc <= 20) {
-		icon = ""
-	} else if (chargePerc >= 21) && (chargePerc <= 40) {
-		icon = ""
-	} else if (chargePerc >= 41) && (chargePerc <= 60) {
-		icon = ""
-	} else if (chargePerc >= 61) && (chargePerc <= 80) {
-		icon = ""
-	} else {
-		icon = ""
-	}
-
 	// Construct and color final output string based
 	// on charging status and percentage.
 	if charging == "Charging" {
-		output = fmt.Sprintf("<span foreground=\"#378c1a\">%s</span>%4d%%", icon, chargePerc)
+		output = fmt.Sprintf("<span foreground=\"#378c1a\">%d%%</span>", chargePerc)
 	} else {
 
 		if (chargePerc >= 0) && (chargePerc <= 20) {
-			output = fmt.Sprintf("<span foreground=\"#ff0000\">%s</span>%4d%%", icon, chargePerc)
+			output = fmt.Sprintf("<span foreground=\"#ff0000\">%d%%</span>", chargePerc)
 		} else if (chargePerc >= 21) && (chargePerc <= 30) {
-			output = fmt.Sprintf("<span foreground=\"#ffae00\">%s</span>%4d%%", icon, chargePerc)
+			output = fmt.Sprintf("<span foreground=\"#ffae00\">%d%%</span>", chargePerc)
 		} else if (chargePerc >= 31) && (chargePerc <= 40) {
-			output = fmt.Sprintf("<span foreground=\"#fff600\">%s</span>%4d%%", icon, chargePerc)
+			output = fmt.Sprintf("<span foreground=\"#fff600\">%d%%</span>", chargePerc)
 		} else {
-			output = fmt.Sprintf("%s%4d%%", icon, chargePerc)
+			output = fmt.Sprintf("%d%%", chargePerc)
 		}
 	}
 
