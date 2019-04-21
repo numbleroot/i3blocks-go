@@ -17,7 +17,7 @@ func main() {
 
 	// Request whats-my-ip service to return this
 	// machine's public IP address via TLS.
-	resp, err := http.Get("https://ip.wirelab.org/")
+	resp, err := http.Get("https://ifconfig.co/ip")
 	if err != nil {
 
 		// Write an error to STDERR, fallback display values
