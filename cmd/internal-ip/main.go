@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
+// Set display texts to defaults.
 var fullText = "unknown"
 var shortText = "unknown"
 
 func main() {
-	// Set display texts to defaults.
 	var iface = &net.Interface{}
 
 	// Check if interface parameter was passed in
@@ -21,7 +21,7 @@ func main() {
 	flag.Parse()
 
 	if ifaceNameFlag == nil || *ifaceNameFlag == "" {
-		// ifaceName paramerer was not passed, use first interface that is up
+		// ifaceName parameter was not passed, use first interface that is up
 		desiredIface, err := firstNonLoopbackInterfaceThatIsUp()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%s", err.Error())
