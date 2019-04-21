@@ -55,7 +55,7 @@ Reload i3 and enjoy beautiful blocklets.
 
 ## Blocklet Specifics
 
-**public-ip**: Queries [ip.wirelab.org](https://ip.wirelab.org/) in defined interval to determine your public IP address.
+**public-ip**: Queries [ifconfig.co/ip](https://ifconfig.co/ip) in defined interval to determine your public IP address.
 
 **internal-ip**: Displays the first found IP address associated with the first network interface marked as being active and not the loopback interface of your machine.
 
