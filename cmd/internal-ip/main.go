@@ -77,7 +77,7 @@ func firstNonLoopbackInterfaceThatIsUp() (*net.Interface, error) {
 		}
 		return &iface, nil
 	}
-	return &net.Interface{}, errors.New("non loopback interface that is up not found")
+	return &net.Interface{}, fmt.Errorf("[i3blocks-go] Could not find non-loopback interface that is up")
 }
 
 // Write out gathered information to STDOUT.
