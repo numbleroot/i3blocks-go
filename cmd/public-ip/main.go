@@ -23,7 +23,7 @@ func main() {
 	var cityFlag = flag.Bool("city", false, "Pass -city to report city instead of IP.")
 	flag.Parse()
 
-	if cityFlag != nil && *cityFlag {
+	if *cityFlag {
 		whatIsMyIpUrl = urlForCity
 	} else {
 		whatIsMyIpUrl = urlForIp
