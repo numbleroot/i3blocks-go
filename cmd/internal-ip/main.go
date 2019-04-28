@@ -17,7 +17,7 @@ func main() {
 	var iface = &net.Interface{}
 
 	// Check if interface parameter was passed in
-	var ifaceNameFlag = flag.String("ifaceName", "", "-ifaceName wlp2s0")
+	var ifaceNameFlag = flag.String("ifaceName", "", "Specify the name of the interface of which to display its IP.")
 	flag.Parse()
 
 	if ifaceNameFlag == nil || *ifaceNameFlag == "" {
