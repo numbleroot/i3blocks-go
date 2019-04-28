@@ -61,7 +61,7 @@ func firstNonLoopbackInterfaceThatIsUp() (*net.Interface, error) {
 	if err != nil {
 		// Write an error to STDERR, fallback display values
 		// to STDOUT and writeAndExit with failure code.
-		return &net.Interface{}, fmt.Errorf("[i3blocks-go] Failed to retrieve local interfaces: %s", err.Error())
+		return nil, fmt.Errorf("[i3blocks-go] Failed to retrieve local interfaces: %s", err.Error())
 	}
 
 	for _, iface := range ifaces {
