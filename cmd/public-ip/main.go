@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"strings"
@@ -10,14 +11,27 @@ import (
 )
 
 func main() {
+	// Url to get IP info
+	var urlForIp string = "https://ifconfig.co/ip"
+	var urlForCity string = "https://ifconfig.co/city"
 
 	// Set display texts to defaults.
 	var fullText string = "unknown"
 	var shortText string = "unknown"
+	var whatIsMyIpUrl string
+
+	var cityFlag = flag.Bool("city", false, "Pass -city to report city instead of IP.")
+	flag.Parse()
+
+	if *cityFlag {
+		whatIsMyIpUrl = urlForCity
+	} else {
+		whatIsMyIpUrl = urlForIp
+	}
 
 	// Request whats-my-ip service to return this
 	// machine's public IP address via TLS.
-	resp, err := http.Get("https://ip.wirelab.org/")
+	resp, err := http.Get(whatIsMyIpUrl)
 	if err != nil {
 
 		// Write an error to STDERR, fallback display values

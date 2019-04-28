@@ -55,9 +55,10 @@ Reload i3 and enjoy beautiful blocklets.
 
 ## Blocklet Specifics
 
-**public-ip**: Queries [ip.wirelab.org](https://ip.wirelab.org/) in defined interval to determine your public IP address.
+**public-ip**: Queries [ifconfig.co/ip](https://ifconfig.co/ip) in defined interval to determine your public IP address. Pass `-city` flag to get name of the city instead of IP
 
 **internal-ip**: Displays the first found IP address associated with the first network interface marked as being active and not the loopback interface of your machine.
+It is possible to specify an interface name to use by passing an argument. `-ifaceName wlp2s0` Look up interface names by running `ip addr show`
 
 **uptime**: By default, shows your machine's uptime in format `hh:mm`. If you would like to see the seconds value as well, change the `command` value of blocklet `uptime` to `command=~/.config/i3blocks-go/uptime -showSeconds`. Consults your system's `/proc/uptime` file.
 
