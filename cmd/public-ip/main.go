@@ -20,7 +20,7 @@ func main() {
 	var shortText string = "unknown"
 	var whatIsMyIpUrl string
 
-	var cityFlag = flag.Bool("city", false, "pass -city to report City instead of IP")
+	var cityFlag = flag.Bool("city", false, "Pass -city to report city instead of IP.")
 	flag.Parse()
 
 	if cityFlag != nil && *cityFlag {
