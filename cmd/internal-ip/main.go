@@ -20,7 +20,7 @@ func main() {
 	var ifaceNameFlag = flag.String("ifaceName", "", "Specify the name of the interface of which to display its IP.")
 	flag.Parse()
 
-	if ifaceNameFlag == nil || *ifaceNameFlag == "" {
+	if *ifaceNameFlag == "" {
 		// ifaceName parameter was not passed, use first interface that is up
 		desiredIface, err := firstNonLoopbackInterfaceThatIsUp()
 		if err != nil {
